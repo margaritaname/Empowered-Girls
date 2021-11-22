@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --color-main: rgba(33, 23, 82);
+    --color-secondary: rgba(20, 209, 143);
+    --color-placeholder-main: #D3CCE3;
+    --color-placeholder-secondary: #E9E4F0;
+    --color-white: #fff;
+    --color-gradient: linear-gradient( 91.7deg, rgba(50,25,79,0.75) -4.3%, rgba(33, 23, 82,0.75) 101.8% );
+    --font-main: 'Comfortaa', cursive;
+    --font-secondary: 'Roboto', sans-serif;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--font-main);
+    background: var(--color-gradient), url(assets/letters.gif) no-repeat center center fixed;
+    background-size: cover;
+    color: var(--color-white);
+}
+header, footer {
+    padding: 0.5rem 1rem;
+    background-color: var(--color-main);
+}
+h1 {
+    font-size: 2rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+}
+#message {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    padding: 2rem;
+}
+label {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-main);
+}
+textarea {
+    resize: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 1rem;
+    height: 12rem;
+    background-color: transparent;
+    border: 0.15rem solid var(--color-secondary);
+    color: var(--color-white);
+}
+span {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-align: end;
+}
+input[type="number"] {
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    font-size: 1rem;
+    text-align: center;
+    color: var(--color-white);
+    background-color: transparent;
+    border: 0.15rem solid var(--color-secondary);
+    border-radius: 10px;
+    padding: 0.5rem 0.5rem;
+    margin-bottom: 1.3rem;
+}
+.btnGroup {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+button {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border-radius: 10px;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+.fas {
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}
+.fa-lock:before {
+    content: "\f023";
+}
+.fa, .fas {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+}
+.fa-lock-open:before {
+    content: "\f3c1";
+}
+.modalClose {
+    animation: close 0.5s forwards;
+}
+.modalContainer {
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal {
+    background-color: var(--color-main);
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    padding: 0.5rem;
+    animation: open 0.5s forwards;
+}
+#close {
+    margin: 5px 5px 0px 0px;
+    align-self: flex-end;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: var(--color-white);
+    line-height: 25px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+textarea#msgResult {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 0.5rem;
+    margin-bottom: 0;
+}
+button#copy {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    width: 100%;
+}
