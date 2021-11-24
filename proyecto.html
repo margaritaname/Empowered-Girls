@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <title>Código Enigma</title>
+  </head>
+  <body>
+    <header>
+      <h1>Código Enigma</h1>
+    </header>
+    <main>
+      <section>
+        <div>
+          <label for="message">Mensaje secreto</label>
+          <textarea id="msg" name="textarea" maxlength="280" placeholder="Escribe o pega tu mensaje secreto aquí"></textarea>
+          <span id="counter">0/500</span>
+          <label for="offset">Clave secreta</label>
+          <input id="offset" type="number" min="-100" max="100" placeholder="Ingresa tu clave secreta aquí" name="offset" step="1">
+          <div >
+            <button id="cipher" name="cipher" type="button">
+              <i >Cifrar</i> 
+            </button>
+            <button id="decipher" name="decipher" type="button">
+              <i> Descifrar </i>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div>
+          <p ></i></p>
+          <label for="messageResult" id="lblMsgResult">Su mensaje es</label>
+          <textarea id="msgResult" name="textarea" readonly></textarea>
+          <button id="copy" name="copy" type="button">
+            <i> Copiar </i>
+          </button>
+        </div>
+      </section>
+    </main>
+</body>
+</html>
