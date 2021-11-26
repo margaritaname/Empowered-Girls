@@ -18,6 +18,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     font-family: var(--font-main);
+    
     background-size: cover;
     color: var(--color-white);
 }
