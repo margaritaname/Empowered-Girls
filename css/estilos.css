@@ -50,14 +50,14 @@ label {
 #message > * {
     width: 100%;
 }
-textarea {
+textarea{
     resize: none;
     border-radius: 10px;
     padding: 10px;
     font-family: var(--font-secondary);
     font-weight: 300;
     font-size: 1rem;
-    height: 5rem;
+    height: 12rem;
     background-color: transparent;
     border: 0.15rem solid var(--color-secondary);
     color: var(--color-white);
@@ -166,7 +166,6 @@ button#copy {
 }
 .fondo{
     background-image: url("https://j.gifs.com/yNzWNJ.gif");
-    
 }
 .cuadro{
     background-color: blanchedalmond;
