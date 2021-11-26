@@ -1,5 +1,5 @@
 //Evento de click en el boton con el id 'btn-cambia'
-document.getElementById("btn-cambiar").addEventListener("click", function(){
+document.getElementById("btn-cifrar").addEventListener("click", function(){
     //variablepara guardar el valor del input
     var mensaje = document.getElementById("msj").value;
     //Arreglo vacio par las nuevas letras
