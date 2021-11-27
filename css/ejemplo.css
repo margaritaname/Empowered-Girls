@@ -45,6 +45,8 @@ main{
     align-items: center;
     justify-content: center;
 }
+
+/****************** Main container ************/
 .container{
     display: flex;
     flex-grow: 1;
@@ -230,4 +232,62 @@ textarea#msgResult:focus-visible{
     line-height: 25px;
     cursor: pointer;
     border-radius: 10px;
+}
+
+/* Modal Animation*/
+@keyframes open{
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    70%{
+        transform: scale(0.95);
+    }
+    95%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes close{
+    100%{
+        transform: translateY(-100vh) scale(0);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    30%{
+        transform: scale(0.95);
+    }
+    5%{
+        transform: scale(1.1);
+    }
+    0%{
+        transform: scale(1);
+    }
+}
+
+/* Media query*/
+@media (min-width: 200px){
+    h1{
+        font-size: 2rem;
+    }
+}
+@media (min-width: 400px){
+    button{
+        width: 49%;
+    }
+}
+@media (min-width: 768px){
+    #message{
+        width: 70%;
+    }
+    button{
+        width: 49%;
+        font-size: 1rem;
+    }
 }

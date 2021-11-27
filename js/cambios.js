@@ -1,33 +1,83 @@
-//Evento de click en el boton con el id 'btn-cambia'
-document.getElementById("btn-cifrar").addEventListener("click", function(){
-    //variablepara guardar el valor del input
-    var mensaje = document.getElementById("msj").value;
-    //Arreglo vacio par las nuevas letras
-    var letrasNuevas = [];
-    //Opcion A: fuera del bucle
-    var nuevoMensaje = "";
-    //Bucle para recorres las letrasde la palabra
-    for(i=0;i<mensaje.length ;i++){
-   //Convertir caracter en minuscula
-     var c = mensaje[i].toLowerCase();
-    //Vriable para guardar el numero de la posiscion de la letra del mensaje
-    var codMsj = mensaje[i].charCodeAt();
-    //Variable para obtener el nuevo codigo de mi nueva letra
-    var codNuevo = codMsj + 2;
-    //Condicional para reiniciar el contador desde "a" , si se pasa de "z" 
-    if(codNuevo > 122){
-        var d = codNuevo - 122;
-        codNuevo = 96 + d;
-    }
-   //Concatenar las nuevas letras en un solo string, la variable nuevoMensaje
-    nuevoMensaje += String.fromCharCode(codNuevo)
-    }
-    //Colocar mensaje final en la etiqueta span
-    document.getElementById("new_msj").innerHTML = nuevoMensaje;   
-})
+//Selectors
+const txtMsg = document.getElementById("msg");
+const count = document.getElementById("counter");
+const offset = document.getElementById("offset");
+const btnCipher = document.getElementById("cipher");
+const btnDecipher = document.getElementById("decipher");
+const lblMsgResult = document.getElementById("lblMsgResult");
+const txtMsgResult = document.getElementById("msgResult");
+const btnCopy = document.getElementById("copy");
+const modalC = document.getElementsByClassName("modalContainer")[0];
+const modal = document.getElementsByClassName("modal")[0];
+const close = document.getElementById("close");
 
-document.getElementById("msj").addEventListener("input", function(){
-    var input = document.getElementById("msj");
-    var p = document.getElementById("new_msj");
-    p.innerHTML = input.value.length;
-})
+//EventListeners
+/* Limit characters*/
+txtMsg.addEventListener("keyup", () =>{
+    count.innerHTML = txtMsg.value.length + "/280";
+});
+
+/* Function cipher*/
+btnCipher.addEventListener("click",()=>{
+    if(txtMsg.value == ""){
+        alert("Ingresa tu mensaje secreto.");
+    }else if(offset.value == ""){
+        alert("No olvides ingresar tu clave secreta.");
+    }else{
+        lblMsgResult.innerHTML = "Su mensaje cifrado es ";
+        let msgResult = cipher.encode(parseInt(offset.value),txtMsg.value);
+        txtMsgResult.innerHTML = msgResult;
+        openModal();
+    }
+});
+/*Function decipher*/
+btnDecipher.addEventListener("click",()=>{
+    if(txtMsg.value == ""){
+        alert("Ingresa tu mensaje secreto.");
+    }else if(offset.value == ""){
+        alert("No olvides ingresar tu clave secreta.");
+    }else{
+        lblMsgResult.innerHTML = "Su mensaje descifrado es ";
+        let msgResult = cipher.decode(parseInt(offset.value),txtMsg.value);
+        txtMsgResult.innerHTML = msgResult;
+        openModal();
+    }
+});
+
+/* Copy cipher or decipher message */
+btnCopy.addEventListener("click",()=>{
+    txtMsgResult.select();
+    document.execCommand("copy");
+    setTimeout(()=>{
+        btnCopy.textContent = "Copiado!";
+    }, 100);
+});
+
+/* Modal events*/
+close.addEventListener("click",()=>{
+    closeModal();
+});
+window.addEventListener("click",(e)=>{
+    if(e.target == modalC){
+        closeModal();
+    }
+});
+/********Functions */
+function openModal(){
+    modalC.classList.remove("containerClose");
+    modal.classList.remove("modalClose");
+}
+function closeModal(){
+    modal.classList.add("modalClose");
+    clearMsg();
+    setTimeout(()=>{
+        btnCopy.innerHTML = "<i class='fas fa-copy'></i> Copiar";
+        modalC.classList.add("containerClose");
+    }, 550);
+}
+function clearMsg(){
+    txtMsg.value = "";
+    txtMsg.innerHTML = "";
+    count.innerHTML = "0/280";
+}
+
