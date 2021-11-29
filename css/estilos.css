@@ -29,19 +29,16 @@ header, footer{
     padding: 0.5rem 1rem;
     background-color: var(--color-main);
 }
-<<<<<<< HEAD
 h1 {
     font-size: 2rem;
     font-family:monospace;
-=======
-
+}
 footer{
     text-align: center;
 }
 
 h1{
     font-size: 1.5rem;
->>>>>>> ce6b6a69d36aff6471b0cf657be498dc282ce241
 }
 
 main{
@@ -238,7 +235,6 @@ textarea#msgResult:focus-visible{
     cursor: pointer;
     border-radius: 10px;
 }
-<<<<<<< HEAD
 textarea#msgResult {
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -259,5 +255,3 @@ button#copy {
 .cuadrode{
     width: 500px;
 }
-=======
->>>>>>> ce6b6a69d36aff6471b0cf657be498dc282ce241
