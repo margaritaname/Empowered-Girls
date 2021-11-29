@@ -1,44 +1,50 @@
+.container{
+    background-image: url(https://static.tumblr.com/42b827b4a65181153a262fbc609ce1bd/hcqi9n2/pAQprbam8/tumblr_static_1594997159-content_2048_v2.gif);
+}
 :root{
-    --color-main: rgba(33, 23, 82);
-    --color-secondary: rgba(20, 209, 143);
+    --color-main: #000000;
+    --color-secondary: rgb(38, 211, 32);
     --color-placeholder-main: #D3CCE3;
-    --color-placeholder-secondary: #E9E4F0;
-    --color-white: #fff;
-    --color-gradient: linear-gradient( 91.7deg, rgba(50,25,79,0.75) -4.3%, rgba(33, 23, 82,0.75) 101.8% );
-    --font-main: 'Comfortaa', cursive;
-    --font-secondary: 'Roboto', sans-serif;
+    --color-placeholder-secondary: #fdfdfd;
+    --color-white: rgb(255, 255, 255);
+    --color-gradient: linear-gradient( 91.7deg, rgba(2, 2, 2, 0.568) -4.3%, rgba(17, 16, 17, 0.438).8% );
+    --font-main: 'Balsamiq Sans';
+    /* --font-main: 'Lobster'; */
+    --font-secondary: 'Source Code Pro',
 }
 
 *{
     box-sizing: border-box;
 }
 
+
 body{
+    background-position: center;/* para centrar la img*/
+    background-repeat: no-repeat;/* sirve para que no se repita la img en caso no entre*/
+    background-size: cover;/*sirve para que entre en toda el espacio de la cja*/
+    background-attachment: fixed; 
     margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     font-family: var(--font-main);
-    background: var(--color-gradient), url(assets/letters.gif) no-repeat center center fixed;
+    background:var(--color-gradient) ,url(../img/fondo.gif);
     background-size: cover;
     color: var(--color-white);
 }
 
 header, footer{
-    padding: 0.5rem 1rem;
+    padding: 0.1rem 1rem;
     background-color: var(--color-main);
 }
-h1 {
-    font-size: 2rem;
-    font-family:monospace;
-}
+
 footer{
     text-align: center;
 }
 
 h1{
-    font-size: 1.5rem;
+    font-size: 3rem;
 }
 
 main{
@@ -48,6 +54,7 @@ main{
     align-items: center;
     justify-content: center;
 }
+
 .container{
     display: flex;
     flex-grow: 1;
@@ -71,17 +78,32 @@ main{
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
+    align-items: center;
 }
-
-/***************** Forms Components ***********/
+.btn-mopv{
+    align-items: center;
+    width:25%;
+    margin: 5px;
+}
+.input_enviar{
+    width: 90%;
+    padding: 10px;
+}
 label{
-    font-weight: 400;
+    font-size: 2rem;
+    font-weight: 800;
     margin-bottom: 0.5rem;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: var(--font-main);
 }
 
+.enviar_POST input {
+    padding: 5px;
+    display: block;
+    text-align: center;
+    margin: auto;
+}
 span{
-    font-size: 0.8rem;
+    font-size: 1.3rem;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
     text-align: end;
@@ -91,19 +113,19 @@ textarea{
     resize: none;
     border-radius: 10px;
     padding: 10px;
-    font-family:  var(--font-secondary);
+    font-family: var(--font-secondary);
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 1.5rem;
     height: 12rem;
-    width: 500px;
     background-color: transparent;
-    border: 0.15rem solid var(--color-secondary);
+    border: var(--color-secondary) solid 2px;
+    box-shadow: 0 0 0.9rem var(--color-secondary);
     color: var(--color-white);
 }
 
 textarea:focus-visible{
     outline: none;
-    box-shadow: 0 0 0.5rem var(--color-secondary);
+    box-shadow: 0 0 1rem var(--color-secondary);
 }
 
 textarea::-webkit-scrollbar {
@@ -130,7 +152,7 @@ textarea::placeholder{
 input[type="number"] {
     font-family: var(--font-secondary);
     font-weight: 300;
-    font-size: 1rem;
+    font-size:1rem;
     text-align: center;
     color: var(--color-white);
     background-color: transparent;
@@ -152,9 +174,10 @@ input[type="number"]:focus-visible{
 }
 
 button{
+    align-items: center;
     font-family: var(--font-main);
-    font-weight: 700;
-    font-size: 0.75rem;
+    font-weight: 900;
+    font-size: 1.5rem;
     cursor: pointer;
     padding: 1rem 1rem;
     border-radius: 10px;
@@ -163,13 +186,18 @@ button{
     border: none;
     margin-bottom: 0.5rem;
     width: 100%;
+    display: inline;
+    text-align: center;
 }
 
 button:hover{
     background-color: var(--color-secondary);
     box-shadow: 0 0 0.5rem var(--color-secondary);
 }
-
+.footer_{
+    text-align: center;
+    font-size: 10px;
+}
 button#copy{
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
@@ -188,7 +216,7 @@ textarea#msgResult:focus-visible{
     padding: 0.5rem;
 }
 
-/******************* Container-modal ***************/
+
 
 .modalContainer{
     position: fixed;
@@ -229,29 +257,72 @@ textarea#msgResult:focus-visible{
     width: 25px;
     height:  25px;
     background-color: transparent;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--color-white);
     line-height: 25px;
     cursor: pointer;
     border-radius: 10px;
 }
-textarea#msgResult {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    padding: 0.5rem;
-    margin-bottom: 0;
+
+
+@keyframes open{
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    70%{
+        transform: scale(0.95);
+    }
+    95%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
-button#copy {
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    width: 100%;
+
+@keyframes close{
+    100%{
+        transform: translateY(-100vh) scale(0);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    30%{
+        transform: scale(0.95);
+    }
+    5%{
+        transform: scale(1.1);
+    }
+    0%{
+        transform: scale(1);
+    }
 }
-.fondo{
-    background-image: url("https://j.gifs.com/yNzWNJ.gif");
+
+
+@media (min-width: 200px){
+    h1{
+        font-size: 2rem;
+    }
 }
-.cuadro{
-    background-color: blanchedalmond;
+@media (min-width: 400px){
+    /* button{
+        width: 49%;
+    } */
 }
-.cuadrode{
-    width: 500px;
+@media (min-width: 768px){
+    #message{
+        width: 70%;
+    }
+    /* button{
+        width: 49%;
+        font-size: 1rem;
+    } */
 }
+
+/* https://media3.giphy.com/media/10zxDv7Hv5RF9C/giphy.mp4?cid=790b7611a26521baafaa6bbe281a7b1cd31cafc7b965bcf8&amp;rid=giphy.mp4&amp;ct=g 
+
+
+/* <video alt="Codificación de la matriz GIF" src="https://media3.giphy.com/media/10zxDv7Hv5RF9C/giphy.mp4?cid=790b7611a26521baafaa6bbe281a7b1cd31cafc7b965bcf8&amp;rid=giphy.mp4&amp;ct=g" poster="https://media3.giphy.com/media/10zxDv7Hv5RF9C/giphy_s.gif?cid=790b7611a26521baafaa6bbe281a7b1cd31cafc7b965bcf8&amp;rid=giphy_s.gif&amp;ct=g" autoplay="" loop="" playsinline="" style="width: 500px; height: 208.333px; left: 0px; top: 0px;"></video> */

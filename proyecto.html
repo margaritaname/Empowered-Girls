@@ -10,51 +10,27 @@
     <header>
       <h1>Código Enigma</h1>
     </header>
-    <main>
+    <main id="container">
       <section class="container">
         <div id="message">
           <label for="message">Mensaje secreto</label>
-<<<<<<< HEA
           <br>
           <textarea   id="msg" name="textarea" maxlength="280" placeholder="Escribe o pega tu mensaje secreto aquí"></textarea>
           <br>
-=======
-          <textarea id="msg" name="textarea" maxlength="280" placeholder="Escribe o pega tu mensaje secreto aquí"></textarea>
->>>>>>> ce6b6a69d36aff6471b0cf657be498dc282ce241
-          <span id="counter">0/500</span>
+          <span id="counter"><span id="contador_palabras">0</span>/400</span>
           <label for="offset">Clave secreta</label>
-<<<<<<< HEAD
           <br>
-          <input class="cuadrode" id="offset" type="number" min="-100" max="100" placeholder="Ingresa tu clave secreta aquí" name="offset" step="1">
-          <div >
-=======
-          <input id="offset" type="number" min="-100" max="100" placeholder="Ingresa tu clave secreta aquí" name="offset" step="1">
-          <div class="btnGroup">
->>>>>>> ce6b6a69d36aff6471b0cf657be498dc282ce241
-            <button id="cipher" name="cipher" type="button">
-              <i class="fas fa-lock"></i> Cifrar
-            </button>
-            <button id="decipher" name="decipher" type="button">
-              <i class="fas fa-lock-open"></i> Descifrar
-            </button>
-          </div>
-        </div>
-      </section>
-      <section class="modalContainer containerClose">
-        <div id="messageResult" class="modal modalClose">
-          <p id="close"><i class="fas fa-times"></i></p>
-          <label for="messageResult" id="lblMsgResult">Su mensaje es</label>
-          <textarea id="msgResult" name="textarea" readonly></textarea>
-          <button id="copy" name="copy" type="button">
-            <i class="fas fa-copy"></i> Copiar
-          </button>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <p>	&copy; Todos los derechos reservados</p>
-    </footer>
-    <script src="js/cambios.js" type="module"></script>
-    <script src="js/ejemplo.js"></script>
+          <input id="msj" type="number" min="0" max="28" placeholder="Ingresa tu clave secreta aquí" name="offset" step="1">
+            <div class="btnGroup">
+              <button class="btn-mopv" id="btn-cifrar" name="cifrar" type="button"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAASJJREFUSEvlleFNw0AMhf0mQEyAvQFMQNmADSgToE5A2YAN6AYwQpkANrBvAzZwdciVQi65KwmVKpGfl9z73vn5HNCRHxxZnw4CqOotgAciWoShrbs/ici2ZbAJSClt3P1uSCgg6xqkCgjnr1nA3VdE9BZiSwCPsX5TO0kVYGa5BNdZXESeu05VdR2Qd2bel644TAvg4fJcRL56AAageY2ZR3UOAowJmNm3gdMCqOoCwEs21mrB3ntz9/t+4EWJzMyI6OKX4vvPjZmlu3cI0KzrEHwsj38E6ISfb3UR5uwS9cIvwvxrQGLmH208G6CqlwA+YnRcichnt5tmA7JYbTScFCBPzbOJN7nIprho0Y6bCeMiufuyOYsmOh/d1vwnzwXuAATY0BkjOMU2AAAAAElFTkSuQmCC"/>  Cifrar</button>
+              <button class="btn-mopv"id="btn-decifrar" name="decipher" type="button"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAASFJREFUSEvlleFNAzEMhf0mQEyAvQFMQNmADSgTICagbMAGdAMYoUwAG9jZgA2MglzpuPSScmklJO5n7vK+F7/YBzrygyPr014AVb0GcEdEizC0cfdHEdm0DDYBKaW1u9/sEgrIqgapAsL5SxZw93sieg2xJYCHWL+qnaQKMLNcgsssLiJPQ6equgrIGzNvS1ccpgXwcHkqIp8jAAPQvMbMkzp7AWoCXSGb2fcJDgpQ1QWA56zbcjd6b+5+Ow68KJGZGRGd/VJ8+7kxswz37gLMKstUOf8RYBB+7uoizO4SjcIvwjw0IDHzj2vcDVDVcwDvMTouRORjeB27AVms1tl/CpCn5snMTi6yKRotruN6xrhI7r5szqKZzie3Nf/JvcAv+AnIGf8dAOMAAAAASUVORK5CYII="/> Descifrar</button>
+           </div>
+        </main>
+            
+            <footer>
+                <p>	&copy; Todos los derechos reservados</p>
+            </footer>
+           
+            <script src="js/cambios.js"></script>
   </body>
 </html>

@@ -1,83 +1,102 @@
-//Selectors
-const txtMsg = document.getElementById("msg");
-const count = document.getElementById("counter");
-const offset = document.getElementById("offset");
-const btnCipher = document.getElementById("cipher");
-const btnDecipher = document.getElementById("decipher");
-const lblMsgResult = document.getElementById("lblMsgResult");
-const txtMsgResult = document.getElementById("msgResult");
-const btnCopy = document.getElementById("copy");
-const modalC = document.getElementsByClassName("modalContainer")[0];
-const modal = document.getElementsByClassName("modal")[0];
-const close = document.getElementById("close");
+// alerta inicial
+Swal.fire({
+    title:"¡¡¡Bienvenidos a nuestro codigo enigma!!!",
+    text:"En esta pagina  aprenderas algunas recomendaciones para proteger usuarios ",
+	timer:"11000",
+    timerProgressBar:true,
+    confirmButtonColor:'rgb(0, 81, 255)',
+    imageUrl:"https://media.kasperskydaily.com/wp-content/uploads/sites/87/2013/06/05214549/042.gif",
+    imageWidth:"500px",
+    
+    });
+// contador de palabras contador_palabras !Evento input!
+document.getElementById("textarea_msj").addEventListener("input",()=>{
+    var textarea=document.getElementById("textarea_msj");
+    var contador=document.getElementById("contador_palabras");
+    contador.innerHTML=textarea.value.length;
 
-//EventListeners
-/* Limit characters*/
-txtMsg.addEventListener("keyup", () =>{
-    count.innerHTML = txtMsg.value.length + "/280";
-});
+})
+// button para cifrar
+//
+document.getElementById("btn-cifrar").addEventListener("click",function(){
+    var input = parseInt(document.getElementById("msj").value);
+    var mensaje = document.getElementById("textarea_msj").value;
+    var codigosNew = [];
+    var nuevoMsj="";
 
-/* Function cipher*/
-btnCipher.addEventListener("click",()=>{
-    if(txtMsg.value == ""){
-        alert("Ingresa tu mensaje secreto.");
-    }else if(offset.value == ""){
-        alert("No olvides ingresar tu clave secreta.");
+    if( input > 0 & input <= 28){
+        for(let i=0;i<mensaje.length;i++){
+        var c =mensaje[i].toLowerCase();
+        var codMsj = c.charCodeAt();
+        var codNew = 32;
+        if(codMsj != 32 ){
+            codNew = codMsj + input;
+        }
+        if( codNew > 122){
+            var d = codNew-122;
+            codNew = 96 + d
+                }
+
+        nuevoMsj += String.fromCharCode(codNew);
+        var msj =document.getElementById(msj);
+         
+    Swal.fire({
+        title:"¡¡¡El codigo Cifrado  es!!!",
+        timer:"22000",
+        html:'<h3><span id="new_msj"></span></h3>',
+        imageUrl:"https://i.gifer.com/bz.gif",
+        timerProgressBar:true,
+        imageWidth:"500px",
+        confirmButtonColor:'rgb(0, 81, 255)',
+        });}
+    document.getElementById("new_msj").innerHTML = nuevoMsj
+    } else{
+        Swal.fire({
+            title:"¡¡¡HUBO UN FALLO !!!",
+            text:"Recuerda que si quieres el codigo cifrado antes debes colocar la clave secreta y no debe ser mayor a 24",
+            timerProgressBar:true,
+            confirmButtonColor:'rgb(0, 81, 255)',
+            imageUrl:"https://i.giphy.com/media/hj9drAwoje3xS/giphy.gif",
+            imageWidth:"500px",
+            
+            });}
+    
+    
+})
+// button para decifrar
+document.getElementById("btn-decifrar").addEventListener("click",function(){
+    var mensaje = document.getElementById("textarea_msj").value;
+    var input = parseInt(document.getElementById("msj").value);
+
+    var codigosNew = [];
+    var nuevoMsj="";
+    if( input > 0 & input <= 28){
+    for(let i=0;i<mensaje.length;i++){
+        var c =mensaje[i].toLowerCase();
+        var codMsj = c.charCodeAt();
+        var codNew = codMsj + 0;
+
+        nuevoMsj += String.fromCharCode(codNew);
+    }
+    Swal.fire({
+        title:"¡¡¡El codigo secreto es!!!",
+        timer:"22000",
+        html:'<h3><span id="new_msj"></span></h3>',
+        timerProgressBar:true,
+        confirmButtonColor:'rgb(0, 81, 255)',
+        imageUrl:"https://i.gifer.com/bz.gif",
+        imageWidth:"250px",
+        
+        });
+
+    document.getElementById("new_msj").innerHTML = nuevoMsj
+
     }else{
-        lblMsgResult.innerHTML = "Su mensaje cifrado es ";
-        let msgResult = cipher.encode(parseInt(offset.value),txtMsg.value);
-        txtMsgResult.innerHTML = msgResult;
-        openModal();
-    }
-});
-/*Function decipher*/
-btnDecipher.addEventListener("click",()=>{
-    if(txtMsg.value == ""){
-        alert("Ingresa tu mensaje secreto.");
-    }else if(offset.value == ""){
-        alert("No olvides ingresar tu clave secreta.");
-    }else{
-        lblMsgResult.innerHTML = "Su mensaje descifrado es ";
-        let msgResult = cipher.decode(parseInt(offset.value),txtMsg.value);
-        txtMsgResult.innerHTML = msgResult;
-        openModal();
-    }
-});
-
-/* Copy cipher or decipher message */
-btnCopy.addEventListener("click",()=>{
-    txtMsgResult.select();
-    document.execCommand("copy");
-    setTimeout(()=>{
-        btnCopy.textContent = "Copiado!";
-    }, 100);
-});
-
-/* Modal events*/
-close.addEventListener("click",()=>{
-    closeModal();
-});
-window.addEventListener("click",(e)=>{
-    if(e.target == modalC){
-        closeModal();
-    }
-});
-/********Functions */
-function openModal(){
-    modalC.classList.remove("containerClose");
-    modal.classList.remove("modalClose");
-}
-function closeModal(){
-    modal.classList.add("modalClose");
-    clearMsg();
-    setTimeout(()=>{
-        btnCopy.innerHTML = "<i class='fas fa-copy'></i> Copiar";
-        modalC.classList.add("containerClose");
-    }, 550);
-}
-function clearMsg(){
-    txtMsg.value = "";
-    txtMsg.innerHTML = "";
-    count.innerHTML = "0/280";
-}
-
+        Swal.fire({
+            title:"¡¡¡HUBO UN FALLO!!!",
+            text:"Recuerda que si quieres el codigo cifrado antes debes colocar la clave secreta que no debe ser mayor a 24 (⊙_⊙;)",
+            timerProgressBar:true,
+            confirmButtonColor:'rgb(0, 81, 255)',
+            imageUrl:"https://i.giphy.com/media/hj9drAwoje3xS/giphy.gif",
+            imageWidth:"500px",
+             })} })
