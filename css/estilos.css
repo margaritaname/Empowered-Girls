@@ -69,8 +69,6 @@ main{
     justify-content: space-between;
     flex-flow: row wrap;
 }
-
-/***************** Forms Components ***********/
 label{
     font-weight: 400;
     margin-bottom: 0.5rem;
@@ -183,9 +181,6 @@ textarea#msgResult:focus-visible{
     outline-color: transparent;
     padding: 0.5rem;
 }
-
-/******************* Container-modal ***************/
-
 .modalContainer{
     position: fixed;
     width: 100%;

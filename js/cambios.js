@@ -1,4 +1,3 @@
-//Selectors
 const txtMsg = document.getElementById("msg");
 const count = document.getElementById("counter");
 const offset = document.getElementById("offset");
@@ -11,13 +10,11 @@ const modalC = document.getElementsByClassName("modalContainer")[0];
 const modal = document.getElementsByClassName("modal")[0];
 const close = document.getElementById("close");
 
-//EventListeners
-/* Limit characters*/
+
 txtMsg.addEventListener("keyup", () =>{
     count.innerHTML = txtMsg.value.length + "/280";
 });
 
-/* Function cipher*/
 btnCipher.addEventListener("click",()=>{
     if(txtMsg.value == ""){
         alert("Ingresa tu mensaje secreto.");
@@ -30,7 +27,7 @@ btnCipher.addEventListener("click",()=>{
         openModal();
     }
 });
-/*Function decipher*/
+
 btnDecipher.addEventListener("click",()=>{
     if(txtMsg.value == ""){
         alert("Ingresa tu mensaje secreto.");
@@ -44,7 +41,6 @@ btnDecipher.addEventListener("click",()=>{
     }
 });
 
-/* Copy cipher or decipher message */
 btnCopy.addEventListener("click",()=>{
     txtMsgResult.select();
     document.execCommand("copy");
@@ -53,7 +49,6 @@ btnCopy.addEventListener("click",()=>{
     }, 100);
 });
 
-/* Modal events*/
 close.addEventListener("click",()=>{
     closeModal();
 });
@@ -62,7 +57,7 @@ window.addEventListener("click",(e)=>{
         closeModal();
     }
 });
-/********Functions */
+
 function openModal(){
     modalC.classList.remove("containerClose");
     modal.classList.remove("modalClose");
